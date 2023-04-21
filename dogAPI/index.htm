@@ -10,7 +10,7 @@
 
   <body>
     <div class="wrapper">
-      <img id="doguinho"/>
+      <img id="dog"/>
     </div>
 
     <button id = "button">Another dog</button>
@@ -30,9 +30,9 @@
       httpRequest.open("get", "https://dog.ceo/api/breeds/image/random");
       httpRequest.send();
 
-      httpRequest.onreadystatechange = funçãodocachorro;
+      httpRequest.onreadystatechange = dogf;
 
-      function funçãodocachorro()
+      function dogf()
       {
           if (httpRequest.readyState == 4 && httpRequest.status == 200)
           {
@@ -40,7 +40,7 @@
               console.log(typeof(dogs))
               var dogsObj = JSON.parse(dogs);
               console.log(dogsObj)
-              document.getElementById("doguinho").src = dogsObj.message
+              document.getElementById("dog").src = dogsObj.message
           }
       }
     </script>
