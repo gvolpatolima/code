@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<title>dogAPI</title>
+    <script src="index.js"></script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <img id="doguinho"/>
+    </div>
+
+    <button id = "button">Another dog</button>
+
+
+    <script>
+      const btn = document.querySelector('#button')
+
+      btn.addEventListener('click', () =>{
+        location.reload()
+      })
+    </script>
+
+
+    <script>
+      var httpRequest = new XMLHttpRequest();
+      httpRequest.open("get", "https://dog.ceo/api/breeds/image/random");
+      httpRequest.send();
+
+      httpRequest.onreadystatechange = funçãodocachorro;
+
+      function funçãodocachorro()
+      {
+          if (httpRequest.readyState == 4 && httpRequest.status == 200)
+          {
+              var dogs = httpRequest.responseText;
+              console.log(typeof(dogs))
+              var dogsObj = JSON.parse(dogs);
+              console.log(dogsObj)
+              document.getElementById("doguinho").src = dogsObj.message
+          }
+      }
+    </script>
+    
+  </body>
+
+
+</html>
